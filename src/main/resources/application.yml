@@ -1,0 +1,8 @@
+server:
+  port: 8088
+
+lang: EN(English), RU(Russian)
+
+lang_localization:
+  EN: en-US
+  RU: ru-RU
