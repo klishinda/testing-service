@@ -1,4 +1,4 @@
-package ru.otus.homework.beans.scanStudent;
+package ru.otus.homework.beans.questionnaireService;
 
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;

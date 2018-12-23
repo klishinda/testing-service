@@ -1,4 +1,4 @@
-package ru.otus.homework.beans.scanStudent;
+package ru.otus.homework.beans.questionnaireService;
 
 import ru.otus.homework.model.Questionnaire;
 import ru.otus.homework.model.Result;

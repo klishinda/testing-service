@@ -1,4 +1,4 @@
-package ru.otus.homework.beans.finalResults;
+package ru.otus.homework.beans.finalResultsPrinter;
 
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +10,13 @@ import ru.otus.homework.model.Student;
 
 @Service
 @Setter
-public class FinalResultsPrinterPrinterImpl implements FinalResultsPrinter {
+public class FinalResultsPrinterImpl implements FinalResultsPrinter {
     private final MessageManagerImpl messageManager;
 
     private final WordEndingsImpl wordEndings;
 
     @Autowired
-    public FinalResultsPrinterPrinterImpl(MessageManagerImpl messageManager, WordEndingsImpl wordEndings) {
+    public FinalResultsPrinterImpl(MessageManagerImpl messageManager, WordEndingsImpl wordEndings) {
         this.messageManager = messageManager;
         this.wordEndings = wordEndings;
     }
