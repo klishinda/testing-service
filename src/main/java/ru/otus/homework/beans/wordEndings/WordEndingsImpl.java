@@ -1,16 +1,23 @@
-package ru.otus.homework.beans;
+package ru.otus.homework.beans.wordEndings;
 
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ru.otus.homework.beans.messageManager.MessageManagerImpl;
 
 import java.util.Locale;
 
+@Service
 @Setter
-public class WordEndings {
-    @Autowired
-    private MessageManager messageManager;
+public class WordEndingsImpl implements WordEndings {
+    private final MessageManagerImpl messageManager;
 
-    String getWordEnding (int correctAnswers) {
+    @Autowired
+    public WordEndingsImpl(MessageManagerImpl messageManager) {
+        this.messageManager = messageManager;
+    }
+
+    public String getWordEnding (int correctAnswers) {
         Locale local = messageManager.getLocale();
 
         if (local != Locale.forLanguageTag("en-US")) {
