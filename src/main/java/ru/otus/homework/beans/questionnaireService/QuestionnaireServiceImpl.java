@@ -30,7 +30,7 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
         String name = inputStream.nextLine();
         System.out.println(messageManager.getMessage("scan_student.surname"));
         String surname = inputStream.nextLine();
-        return new Student(name, surname);
+        return new Student(surname, name);
     }
 
     public Result startQuestionnaire(ArrayList<Questionnaire> quizArray) {

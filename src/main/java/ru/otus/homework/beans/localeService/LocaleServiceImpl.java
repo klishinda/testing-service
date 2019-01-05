@@ -36,6 +36,12 @@ public class LocaleServiceImpl implements LocaleService {
         getLocalizationParameter(lang);
     }
 
+    public void setLocalization(String lang) throws WrongInputsError {
+        checkWrongAttempts();
+
+        getLocalizationParameter(lang);
+    }
+
     private void checkWrongAttempts() throws WrongInputsError {
         if (errorCounts >= MAX_ERROR_ATTEMPTS) {
             throw new WrongInputsError("You are too stupid for this test, go away!!!");
