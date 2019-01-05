@@ -1,14 +1,15 @@
 package ru.otus.homework.beans.serviceCall;
 
-import org.springframework.shell.table.Table;
 import ru.otus.homework.exceptions.CsvReaderException;
 import ru.otus.homework.exceptions.WrongInputsError;
+import ru.otus.homework.model.Result;
+import ru.otus.homework.model.Student;
 
 public interface ServiceCall {
     void setLanguage() throws WrongInputsError;
     void setLanguage(String abbreviationLanguage) throws WrongInputsError;
     void requestStudentName();
     void startTest() throws CsvReaderException;
-    Table printResults();
-    Table start() throws CsvReaderException, WrongInputsError;
+    Student getStudent();
+    Result getResult();
 }
