@@ -1,7 +1,9 @@
-package ru.otus.homework.beans;
+package ru.otus.homework.beans.questionnaireService;
 
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ru.otus.homework.beans.messageManager.MessageManagerImpl;
 import ru.otus.homework.model.Questionnaire;
 import ru.otus.homework.model.Result;
 import ru.otus.homework.model.Student;
@@ -9,21 +11,26 @@ import ru.otus.homework.model.Student;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+@Service
 @Setter
-public class ScanStudent {
+public class QuestionnaireServiceImpl implements QuestionnaireService {
     private int correctAnswersCounter = 0;
     private Scanner inputStream;
 
-    @Autowired
-    private MessageManager messageManager;
+    private final MessageManagerImpl messageManager;
 
-    public Student getName() {
+    @Autowired
+    public QuestionnaireServiceImpl(MessageManagerImpl messageManager) {
+        this.messageManager = messageManager;
+    }
+
+    public Student requestStudentName() {
         inputStream = new Scanner(System.in);
         System.out.println(messageManager.getMessage("scan_student.name"));
         String name = inputStream.nextLine();
         System.out.println(messageManager.getMessage("scan_student.surname"));
         String surname = inputStream.nextLine();
-        return new Student(name, surname);
+        return new Student(surname, name);
     }
 
     public Result startQuestionnaire(ArrayList<Questionnaire> quizArray) {

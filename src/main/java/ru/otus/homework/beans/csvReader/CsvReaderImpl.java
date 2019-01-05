@@ -1,8 +1,10 @@
-package ru.otus.homework.beans;
+package ru.otus.homework.beans.csvReader;
 
 import au.com.bytecode.opencsv.CSVReader;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ru.otus.homework.beans.messageManager.MessageManagerImpl;
 import ru.otus.homework.exceptions.CsvReaderException;
 import ru.otus.homework.model.Questionnaire;
 
@@ -12,11 +14,16 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+@Service
 @Setter
-public class CsvReader {
+public class CsvReaderImpl implements CsvReader {
+
+    private final MessageManagerImpl messageManager;
 
     @Autowired
-    private MessageManager messageManager;
+    public CsvReaderImpl(MessageManagerImpl messageManager) {
+        this.messageManager = messageManager;
+    }
 
     public ArrayList<Questionnaire> readCsv() throws CsvReaderException {
         final String CSV_FILE_PATH = messageManager.getMessage("csv_reader.path_to_csv");
